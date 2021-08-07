@@ -33,4 +33,9 @@ public class Tests {
     public void testingNumberWithNewLine() {
         assertEquals(15, StringAdd.add("1\n2,3,4\n5"));
     }
+
+    @Test
+    public void testingNumberWithNewDelimiter() {
+        assertEquals(4, StringAdd.add("//;\n1;3"));
+    }
 }
