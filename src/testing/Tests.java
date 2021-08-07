@@ -58,6 +58,11 @@ public class Tests {
 
     @Test
     public void testingNumberWithDelimiterOfAnyLength() throws NegativeNumberException {
-        assertEquals(3, StringAdd.add("//[;;]\n2;;3"));
+        assertEquals(5, StringAdd.add("//[;;]\n2;;3"));
+    }
+
+    @Test
+    public void testingNumberWithMultipleDelimiter() throws NegativeNumberException {
+        assertEquals(10, StringAdd.add("//[;][:]\n2;3:5"));
     }
 }
