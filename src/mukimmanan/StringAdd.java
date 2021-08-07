@@ -1,7 +1,7 @@
 package mukimmanan;
 
 public class StringAdd {
-    public static int add(String text) {
+    public static int add(String text) throws NegativeNumberException {
         if (text.equals("")) {
             return 0;
         }
@@ -21,7 +21,11 @@ public class StringAdd {
         int sum = 0;
 
         for (String str: values) {
-            sum += Integer.parseInt(str);
+            int x = Integer.parseInt(str);
+            if (x < 0) {
+                throw new NegativeNumberException("Negatives Not Allowed");
+            }
+            sum += x;
         }
         return sum;
     }
