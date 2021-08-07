@@ -11,13 +11,30 @@ public class StringAdd {
         }
 
         String delimiter = ",";
-        if (text.matches("//\\[(.*)]\n(.*)")) {
+        if (text.matches("//\\[(.*)]+\n(.*)")) {
+            StringBuilder str = new StringBuilder();
             int start = text.indexOf("[");
-            int end = text.lastIndexOf("]");
-            delimiter = text.substring(start + 1, end);
+            int end = text.indexOf("]");
+            str.append(text, start + 1, end);
+            text = text.substring(end + 1);
+
+            while (true) {
+                start = text.indexOf("[");
+                end = text.indexOf("]");
+                if (start != -1) {
+                    str.append("|");
+                    str.append(text, start + 1, end);
+                    text = text.substring(end + 1);
+                } else {
+                    break;
+                }
+
+            }
             int new_line_idx = text.indexOf("\n");
             text = text.substring(new_line_idx + 1);
+            delimiter = str.toString();
         }
+
         else if (text.matches("//(.*)\n(.*)")) {
             delimiter = Character.toString(text.charAt(2));
             text = text.substring(4);
