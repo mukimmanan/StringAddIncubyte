@@ -11,8 +11,14 @@ public class StringAdd {
         }
 
         String delimiter = ",";
-
-        if (text.matches("//(.*)\n(.*)")) {
+        if (text.matches("//\\[(.*)]\n(.*)")) {
+            int start = text.indexOf("[");
+            int end = text.lastIndexOf("]");
+            delimiter = text.substring(start + 1, end);
+            int new_line_idx = text.indexOf("\n");
+            text = text.substring(new_line_idx + 1);
+        }
+        else if (text.matches("//(.*)\n(.*)")) {
             delimiter = Character.toString(text.charAt(2));
             text = text.substring(4);
         }
