@@ -50,4 +50,9 @@ public class Tests {
     public void testingNumberWithMultipleNegative() throws NegativeNumberException {
         assertEquals(4, StringAdd.add("//;\n-1;-3"));
     }
+
+    @Test
+    public void testingNumberWithNumGreaterThan1000() throws NegativeNumberException {
+        assertEquals(3, StringAdd.add("//;\n1001;3"));
+    }
 }
