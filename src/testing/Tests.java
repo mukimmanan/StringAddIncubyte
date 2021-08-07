@@ -14,4 +14,9 @@ public class Tests {
         assertEquals(0, StringAdd.add(""));
     }
 
+    @Test
+    public void testingOneNumberString() {
+        assertEquals(2, StringAdd.add("2"));
+    }
+
 }
