@@ -11,9 +11,12 @@ public class StringAdd {
         }
 
         String delimiter = ",";
-        if (text.contains("\n")) {
-            delimiter = "[,\n]";
+
+        if (text.matches("//(.*)\n(.*)")) {
+            delimiter = Character.toString(text.charAt(2));
+            text = text.substring(4);
         }
+        delimiter += "|\n";
         String[] values = text.split(delimiter);
         int sum = 0;
 
