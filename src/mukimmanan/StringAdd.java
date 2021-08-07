@@ -10,7 +10,11 @@ public class StringAdd {
             return Integer.parseInt(text);
         }
 
-        String[] values = text.split(",");
+        String delimiter = ",";
+        if (text.contains("\n")) {
+            delimiter = "[,\n]";
+        }
+        String[] values = text.split(delimiter);
         int sum = 0;
 
         for (String str: values) {
