@@ -11,6 +11,11 @@ public class StringAdd {
         }
 
         String[] values = text.split(",");
-        return Integer.parseInt(values[0]) + Integer.parseInt(values[1]);
+        int sum = 0;
+
+        for (String str: values) {
+            sum += Integer.parseInt(str);
+        }
+        return sum;
     }
 }
