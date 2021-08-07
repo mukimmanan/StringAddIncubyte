@@ -55,4 +55,9 @@ public class Tests {
     public void testingNumberWithNumGreaterThan1000() throws NegativeNumberException {
         assertEquals(3, StringAdd.add("//;\n1001;3"));
     }
+
+    @Test
+    public void testingNumberWithDelimiterOfAnyLength() throws NegativeNumberException {
+        assertEquals(3, StringAdd.add("//[;;]\n2;;3"));
+    }
 }
