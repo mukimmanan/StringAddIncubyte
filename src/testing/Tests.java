@@ -19,4 +19,14 @@ public class Tests {
         assertEquals(2, StringAdd.add("2"));
     }
 
+    @Test
+    public void testingTwoNumberString() {
+        assertEquals(5, StringAdd.add("2,3"));
+    }
+
+    @Test
+    public void testingUnknownNumber() {
+        assertEquals(15, StringAdd.add("1,2,3,4,5"));
+    }
+
 }
