@@ -29,6 +29,10 @@ public class StringAdd {
                 stringBuilder.append(x);
                 stringBuilder.append(",");
             }
+
+            if (x > 1000) {
+                x = 0;
+            }
             sum += x;
         }
         if (neg_count > 0) {
