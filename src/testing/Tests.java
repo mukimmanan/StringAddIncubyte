@@ -45,4 +45,9 @@ public class Tests {
     public void testingNumberWithNegative() throws NegativeNumberException {
         assertEquals(4, StringAdd.add("//;\n-1;3"));
     }
+
+    @Test
+    public void testingNumberWithMultipleNegative() throws NegativeNumberException {
+        assertEquals(4, StringAdd.add("//;\n-1;-3"));
+    }
 }
