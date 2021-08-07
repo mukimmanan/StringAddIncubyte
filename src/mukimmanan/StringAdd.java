@@ -19,13 +19,24 @@ public class StringAdd {
         delimiter += "|\n";
         String[] values = text.split(delimiter);
         int sum = 0;
+        StringBuilder stringBuilder = new StringBuilder();
+        int neg_count = 0;
 
         for (String str: values) {
             int x = Integer.parseInt(str);
             if (x < 0) {
-                throw new NegativeNumberException("Negatives Not Allowed");
+                neg_count += 1;
+                stringBuilder.append(x);
+                stringBuilder.append(",");
             }
             sum += x;
+        }
+        if (neg_count > 0) {
+            if (neg_count == 1) {
+                throw new NegativeNumberException("Negatives Not Allowed");
+            } else {
+                throw new NegativeNumberException("Negative Numbers Present = " + stringBuilder);
+            }
         }
         return sum;
     }
